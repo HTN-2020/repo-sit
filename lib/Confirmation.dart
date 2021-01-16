@@ -25,45 +25,56 @@ class _MyConfirmationState extends State<Confirmation> {
                     children: <Widget>[
                       Image.asset(
                         'images/che.png',
-                        width: 200,
-                        height: 200,
+                        width: 150,
+                        height: 150,
                       ),
                   Container(
                     margin: EdgeInsets.only (
-                      top: 15
+                      top: 60,
+                          bottom: 20,
+                        left: 13,
+                      right: 13
                     ),
                   child:
                   Text(
                     'Our system has processed your booking, thank you for using SitDown!',
                     textDirection: TextDirection.ltr,
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.getFont('Source Sans Pro'),
-                  )
+                    style: GoogleFonts.getFont('Source Sans Pro', fontSize: 20))
                   ),
-
+                  Container(
+                      margin: EdgeInsets.only (
+                          top: 15,
+                          left: 13,
+                          right: 13
+                      ),
+                      child:
                       Text(
                         'You will be receiving a SMS shortly with details of your reservation.',
                         textDirection: TextDirection.ltr,
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.getFont('Source Sans Pro'),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 100.0),
-                        child: RaisedButton(
-                            onPressed: () {},
-                            child:
-                            Text(
-                              'Back to Dashboard',
-                                style: GoogleFonts.getFont('Source Sans Pro')
-                            ),
-                            textColor: Colors.black,
-                            color: Color(0xff84c1ff),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(21)
-                            ),
-                            padding: EdgeInsets.all(15)
-                          )
+                        style: GoogleFonts.getFont('Source Sans Pro', fontSize: 20)
                       )
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(top: 80),
+                    child: RaisedButton(
+                        //!!!!!!!! on Pressed!!
+                        onPressed: () {},
+                        child:
+                        Text(
+                          'Back to Dashboard',
+                            style: GoogleFonts.getFont('Source Sans Pro')
+                        ),
+                        textColor: Colors.black,
+                        color: Color(0xff84c1ff),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(21)
+                        ),
+                        padding: EdgeInsets.all(15)
+                      )
+                  )
                     ]
                   )
             ),
