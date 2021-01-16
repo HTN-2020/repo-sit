@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'CovidForm.dart';
+import 'package:htn_app/login.dart';
+import 'package:htn_app/loginscreen.dart';
 
 void main() {
   runApp(new App());

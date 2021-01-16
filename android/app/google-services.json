@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "686635178312",
+    "project_id": "hackthenorth-27fa5",
+    "storage_bucket": "hackthenorth-27fa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686635178312:android:c8ccd5ad4e39e7d5b1bb7d",
+        "android_client_info": {
+          "package_name": "com.example.htn_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686635178312-tsfthqn6f5vg4v1v1do4akjb0ohndjh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_JCH1GPh_IMFix-gJt9GvtxmYepYswhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686635178312-tsfthqn6f5vg4v1v1do4akjb0ohndjh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
