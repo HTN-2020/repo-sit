@@ -3,27 +3,33 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-
-import 'Confirmation.dart';
+import 'home.dart';
+import 'CovidForm.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
-        ),
+      title: 'App',
+      home: Home(),
+    );
+  }
+}
+
+class CovidScreening extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'SitDown',
+      theme: new ThemeData(
+        primarySwatch: Colors.lightBlue,
       ),
+      home: new COVIDScreening(title: 'COVID Screening Form'),
     );
   }
 }
