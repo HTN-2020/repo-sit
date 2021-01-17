@@ -9,6 +9,7 @@ import 'package:htn_app/login.dart';
 import 'package:htn_app/loginscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'home_page.dart';
+import 'login.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'App',
-      home: Home(),
+      home: LoginScreen(),
     );
   }
 }

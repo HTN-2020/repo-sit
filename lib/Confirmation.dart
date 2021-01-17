@@ -74,7 +74,7 @@ class _MyConfirmationState extends State<Confirmation> {
                       context,
                       MaterialPageRoute(
                           builder: (context){
-                              PlaceholderWidget(Colors.green);
+                              Home();
                           }));
                 },
                 child: Text('Back to Dashboard',

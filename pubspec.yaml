@@ -72,6 +72,7 @@ flutter:
       - images/che.png
       - images/sit.png
       - images/table.png
+      - images/Hack_the_North_Logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
