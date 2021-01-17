@@ -1,7 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dio/dio.dart';
 
+void getHttp() async {
+  const api_key = String.fromEnvironment('api_key');
+  const api_secret = String.fromEnvironment('api_secret');
+  const numb = String.fromEnvironment('numb');
+  const from = String.fromEnvironment('from');
+
+  //!!!! EDIT TEXT FIELD
+  try {
+    Response response = await Dio().post("https://rest.nexmo.com/sms/json", data: {"from": from, "to": numb, "text": "Hello", "api_key": api_key, "api_secret": api_secret});
+
+    print(response);
+  } catch (e) {
+    print(e);
+  }
+}
 
 class Confirmation extends StatefulWidget {
   Confirmation(): super();
@@ -61,7 +77,9 @@ class _MyConfirmationState extends State<Confirmation> {
                     margin: EdgeInsets.only(top: 80),
                     child: RaisedButton(
                         //!!!!!!!! on Pressed!!
-                        onPressed: () {},
+                        onPressed: () {
+                          getHttp();
+                        },
                         child:
                         Text(
                           'Back to Dashboard',

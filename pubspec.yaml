@@ -34,6 +34,8 @@ dependencies:
   flutter_form_builder: ^4.2.0
   intl: ^0.16.1
   google_fonts: ^1.1.1
+  http: ^0.12.0+2
+  dio: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +59,7 @@ flutter:
 
   assets:
       - images/che.png
+      - images/SIT.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
