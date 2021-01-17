@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'booking.dart';
 
 void main() {
   runApp(new MyApp());
@@ -44,13 +45,19 @@ class _COVIDScreeningState extends State<COVIDScreening> {
       print('Q4:  $qFourSwitched');
       print('Q5:  $qFiveSwitched');
       print('Q6:  $qSixSwitched');
+      if (!(qOneSwitched || qTwoSwitched || qThreeSwitched || qFourSwitched || qFiveSwitched) && qSixSwitched) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Booking()));
+      }
     }
 
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
       ),
-      body: new Column(
+      body: new ListView(
         children: <Widget>[
           new ListTile(
             //leading: const Icon(Icons.person),

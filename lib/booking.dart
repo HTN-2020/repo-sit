@@ -2,11 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:htn_app/Confirmation.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'Confirmation.dart';
 
 class Booking extends StatefulWidget {
-  Booking() : super();
+  final String title;
+
+  Booking({Key key, this.title}) : super(key: key);
 
   @override
   _MyFloorState createState() => _MyFloorState();
@@ -17,8 +21,8 @@ class _MyFloorState extends State<Booking> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title:
-                Text('Select a floor', style: GoogleFonts.getFont('Source Sans Pro'))),
+            title: Text('Select a floor',
+                style: GoogleFonts.getFont('Source Sans Pro'))),
         body: ListView.builder(
             itemCount: 2, // change to match database
             itemBuilder: (BuildContext context, int index) {
@@ -32,11 +36,14 @@ class _MyFloorState extends State<Booking> {
                   },
                   child: SizedBox(
                       width: double.infinity,
-                      height: 50,
+                      height: 100,
                       child: Card(
                         child: Center(
-                            child: Text("Floor ${index + 1}",
-                                style: GoogleFonts.getFont('Source Sans Pro'))),
+                            child: Text(
+                          "Floor ${index + 1}",
+                          style: GoogleFonts.getFont('Source Sans Pro'),
+                          textScaleFactor: 2.5,
+                        )),
                       )));
             }));
   }
@@ -98,6 +105,13 @@ class _MyBookingState extends State<_MyBookingPage> {
       children: List.generate(gridSize, (i) {
         return RaisedButton(
             color: colors[grid[i ~/ grid.length][i % grid.length]],
+            child: Container(
+                decoration: BoxDecoration(
+                    image: (grid[i ~/ grid.length][i % grid.length] == 1)
+                        ? DecorationImage(
+                            image: new ExactAssetImage('images/table.png'),
+                    )
+                        : null)),
             onPressed: () {
               if (grid[i ~/ grid.length][i % grid.length] == 1) {
                 // if the seat is available
@@ -195,84 +209,91 @@ class _MySelectedPageState extends State<_MySelectedPage> {
             title: Text("Set up your booking",
                 style: GoogleFonts.getFont('Source Sans Pro'))),
         body: Container(
-            margin: EdgeInsets.all(10),
-            child: ListView(
-              children: [
-                Card(
-                    child: TextFormField(
-                  // Name field
-                  controller: myController,
-                  decoration: const InputDecoration(
-                      icon: Icon(Icons.person),
-                      hintText: 'What do people call you?',
-                      labelText: 'Name *',
+            //color: Color(0xffd6eaff),
+            child: Container(
+                margin: EdgeInsets.all(10),
+                child: ListView(
+                  children: [
+                    Card(
+                        child: TextFormField(
+                      // Name field
+                      controller: myController,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.person),
+                        hintText: 'What do people call you?',
+                        labelText: 'Name *',
                       ),
-                  validator: (String value) {
-                    return value.contains('@')
-                        ? 'Do not use the @ char.'
-                        : null;
-                  },
-                )),
+                    )),
 
-                //space
-                SizedBox(height: 40, width: double.infinity),
+                    //space
+                    SizedBox(height: 40, width: double.infinity),
 
-                // DateTime fields
-                SizedBox(
-                    height: 300,
-                    child: ListView(
-                        physics: NeverScrollableScrollPhysics(),
-                        children: [
-                          InkWell(
-                              onTap: () => _selectDate(context, d1, 1),
-                              child: Text(
-                                  new DateFormat.yMMMd().format(d1) +
-                                      "\n" +
-                                      new DateFormat.jm().format(d1),
-                                  textAlign: TextAlign.center,
-                                  textScaleFactor: 2.5,
-                                  style:
-                                      GoogleFonts.getFont('Source Sans Pro'))),
-                          SizedBox(
-                              height: 75,
-                              width: double.infinity,
-                              child: Center(
-                                  child: Text("To",
-                                      textAlign: TextAlign.center,
-                                      textScaleFactor: 3,
-                                      style: GoogleFonts.getFont(
-                                          'Source Sans Pro')))),
-                          InkWell(
-                              onTap: () => _selectDate(context, d2, 2),
-                              child: Text(
-                                  new DateFormat.yMMMd().format(d2) +
-                                      "\n" +
-                                      new DateFormat.jm().format(d2),
-                                  textAlign: TextAlign.center,
-                                  textScaleFactor: 2.5,
-                                  style:
-                                      GoogleFonts.getFont('Source Sans Pro')))
-                        ])),
+                    // DateTime fields
+                    SizedBox(
+                        height: 300,
+                        child: ListView(
+                            physics: NeverScrollableScrollPhysics(),
+                            children: [
+                              Container(
+                                  color: Color(0xffadd6ff),
+                                  child: InkWell(
+                                      onTap: () => _selectDate(context, d1, 1),
+                                      child: Text(
+                                          new DateFormat.yMMMd().format(d1) +
+                                              "\n" +
+                                              new DateFormat.jm().format(d1),
+                                          textAlign: TextAlign.center,
+                                          textScaleFactor: 2.5,
+                                          style: GoogleFonts.getFont(
+                                              'Source Sans Pro')))),
+                              SizedBox(
+                                  height: 75,
+                                  width: double.infinity,
+                                  child: Center(
+                                      child: Text("To",
+                                          textAlign: TextAlign.center,
+                                          textScaleFactor: 3,
+                                          style: GoogleFonts.getFont(
+                                              'Source Sans Pro')))),
+                              Container(
+                                  color: Color(0xffadd6ff),
+                                  child: InkWell(
+                                      onTap: () => _selectDate(context, d2, 2),
+                                      child: Text(
+                                          new DateFormat.yMMMd().format(d2) +
+                                              "\n" +
+                                              new DateFormat.jm().format(d2),
+                                          textAlign: TextAlign.center,
+                                          textScaleFactor: 2.5,
+                                          style: GoogleFonts.getFont(
+                                              'Source Sans Pro'))))
+                            ])),
 
-                SizedBox(height: 75, width: double.infinity),
+                    SizedBox(height: 75, width: double.infinity),
 
-                // Submit
-                SizedBox(
-                  height: 75,
-                  width: double.infinity,
-                  child: RaisedButton(
-                      color: Colors.blue,
-                      onPressed: () {
-                        data.add(myController.text);
-                        data.add(d1);
-                        data.add(d2);
-                        print(data);
-                      },
-                      child: Text("Submit",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont('Source Sans Pro'))),
-                ),
-              ],
-            )));
+                    // Submit
+                    SizedBox(
+                      height: 75,
+                      width: double.infinity,
+                      child: RaisedButton(
+                          color: Colors.blue,
+                          onPressed: () {
+                            data.add(myController.text);
+                            data.add(d1);
+                            data.add(d2);
+
+                            getHttp(data);
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Confirmation()));
+                          },
+                          child: Text("Submit",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.getFont('Source Sans Pro'))),
+                    ),
+                  ],
+                ))));
   }
 }

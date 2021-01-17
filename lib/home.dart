@@ -14,8 +14,9 @@ class _HomeState extends State<Home> {
   int _currentIndex = 1;
   final List<Widget> _children = [
     CovidScreening(),
-    PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)];
+    PlaceholderWidget(Colors.green)
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,24 +26,20 @@ class _HomeState extends State<Home> {
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
-        currentIndex: _currentIndex, // this will be set when a new tab is tapped
+        currentIndex: _currentIndex,
+        // this will be set when a new tab is tapped
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.coronavirus),
-            title: new Text('COVID Form'),
-          ),
+              icon: Icon(Icons.book_online), title: Text('Book')),
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.book_online),
-              title: Text('Book')
-          )
         ],
       ),
     );
   }
+
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
