@@ -23,7 +23,7 @@ class _MyFloorState extends State<Booking> {
         appBar: AppBar(
             title: Text('Select a floor',
                 style: GoogleFonts.getFont('Source Sans Pro'))),
-        body: ListView.builder(
+        body: ListView.builder(//
             itemCount: 2, // change to match database
             itemBuilder: (BuildContext context, int index) {
               return new GestureDetector(
