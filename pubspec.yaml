@@ -21,12 +21,12 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
-firebase_auth: // For Firebase Authentication
-google_sign_in: // For Google Sign-in
-font_awesome_flutter: // For adding the Google Icon
 
 
 dependencies:
+
+  google_sign_in: "^4.5.1"
+  font_awesome_flutter: "^8.11.0"
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -60,6 +60,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+
+  assets:
+  - images/sit.png
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

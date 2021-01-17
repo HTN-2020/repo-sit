@@ -1,20 +1,13 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 
-
-
-class Login extends StatelessWidget {
+class Fail extends StatelessWidget {
   final Color primaryColor = Color(0xFFE1F5FE);
   final Color secondaryColor = Color(0xFFB3E5FC);
-
   final Color logoGreen = Color(0xFF03A9F4);
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +23,28 @@ class Login extends StatelessWidget {
 
         Container(
           alignment: Alignment.topCenter,
-          margin: EdgeInsets.symmetric(horizontal: 30),
+
+          margin: EdgeInsets.symmetric(horizontal: 40),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+              MaterialButton(
+                elevation: 0,
+                minWidth: double.maxFinite,
+                height: 50,
+                onPressed: () async {
+                  //return   Login();
+                  Navigator.pop(context);
 
-                _buildFooterLogo(),
+                },
+                color: logoGreen,
+                child: Text('Incorrect Email or Password, try again.',
+                    style: TextStyle(color: Colors.black, fontSize: 16)),
+                textColor: Colors.black,
+              ),
 
-                SizedBox(height: 20),
-                Text(
-                  'Incorrect username or password!',
-                  textAlign: TextAlign.center,
-                  style:
-                  GoogleFonts.openSans(color: Colors.black, fontSize: 14),
-                ),
+
+               // _buildFooterLogo()
 
 
               ],
@@ -53,6 +52,10 @@ class Login extends StatelessWidget {
           ),
         ));
   }
+
+
+
+
 
 
   _buildFooterLogo() {
@@ -65,15 +68,12 @@ class Login extends StatelessWidget {
         ),
 
 
-        Text('',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.openSans(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
+
 
       ],
     );
+
+
   }
 
 
