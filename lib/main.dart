@@ -8,17 +8,12 @@ import 'CovidForm.dart';
 import 'package:htn_app/login.dart';
 import 'package:htn_app/loginscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:htn_app/loginscreen.dart';
+import 'home_page.dart';
 
-void main() {
-  runApp(new App());
-
-
- main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
-
+  runApp(new App());
 }
 
 class App extends StatelessWidget {
@@ -44,3 +39,15 @@ class CovidScreening extends StatelessWidget {
     );
   }
 }
+
+  class WelcomeScreen extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build (BuildContext context) {
+  return new MaterialApp(
+  //debugShowCheckedModeBanner: false,
+  title: 'Welcome Screen',
+  home: new WELCOMEScreen(),
+  );
+  }
+  }

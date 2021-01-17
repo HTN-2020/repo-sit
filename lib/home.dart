@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 import 'main.dart';
 import 'placeholder_widget.dart';
 import 'CovidForm.dart';
@@ -14,7 +15,7 @@ class _HomeState extends State<Home> {
   int _currentIndex = 1;
   final List<Widget> _children = [
     CovidScreening(),
-    PlaceholderWidget(Colors.green)
+  WelcomeScreen()
   ];
 
   @override
