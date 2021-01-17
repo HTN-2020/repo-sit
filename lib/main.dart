@@ -5,9 +5,20 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'CovidForm.dart';
+import 'package:htn_app/login.dart';
+import 'package:htn_app/loginscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:htn_app/loginscreen.dart';
 
 void main() {
   runApp(new App());
+
+
+ main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+
 }
 
 class App extends StatelessWidget {
